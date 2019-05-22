@@ -2,10 +2,10 @@ import React from 'react';
 import { Link } from "@reach/router";
 
 const Nav = () => (
-	<div className="navigation">
-		<Link to="/" className="nav-item">Home</Link>
-		<Link to="/todo" className="nav-item">Todo</Link>
-	</div>
+	<ul className="navigation">
+		<li className="nav-list"><Link to="/" className="nav-link">Home</Link></li>
+		<li className="nav-list"><Link to="/todo" className="nav-link">Todo</Link></li>
+	</ul>
 );
 
 export default Nav;

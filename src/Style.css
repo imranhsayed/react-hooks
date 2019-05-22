@@ -9,6 +9,25 @@ body {
 	margin: 0;
 }
 
+.navigation {
+	height: 42px;
+	display: flex;
+	align-items: center;
+	background: black;
+	margin: 0;
+	padding: 0;
+}
+
+.nav-list {
+	list-style: none;
+}
+
+.nav-link {
+	color: #f5fffa;
+	text-decoration: none;
+	padding: 24px;
+}
+
 .main-heading {
 	text-align: center;
 	color: #00ffff;
