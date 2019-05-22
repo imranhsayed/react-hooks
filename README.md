@@ -2,15 +2,15 @@
 
 :anchor: A demo app for React Hooks
 
-## Installation
+## Installation :wrench:
 
-1. Clone this repo in `git clone https://github.com/imranhsayed/react-hooks`
+* Clone this repo in `git clone https://github.com/imranhsayed/react-hooks`
 
-2. `cd react-hooks`
+* `cd react-hooks`
 
-2. Run `npm install`
+* Run `npm install`
 
-## Commands
+## Commands :computer:
 
 - `dev` Runs webpack dev server for development ( in watch mode )
 - `prod` Runs webpack in production mode

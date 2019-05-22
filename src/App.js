@@ -1,9 +1,12 @@
 import React from 'react';
+import Todo from "./components/Todo";
 
 class App extends React.Component {
 	render() {
 		return (
-			<div>My App Component</div>
+			<div>
+				<Todo/>
+			</div>
 		);
 	}
 }
