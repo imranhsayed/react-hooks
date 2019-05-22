@@ -10,6 +10,14 @@
 
 * Run `npm install`
 
+## Branches Information
+
+1. [todo-app]() Example of creating a Todo App using React Hooks
+
+### Todo App Demo :video_camera:
+
+![](todo-app.gif)
+
 ## Commands :computer:
 
 - `dev` Runs webpack dev server for development ( in watch mode )
