@@ -1,8 +1,12 @@
 import React from 'react';
 
-const Item = ( { todo } ) => {
+const Item = ( { todo, index, handleItemClick } ) => {
+	
 	return (
-		<div className="todo">
+		<div
+			className={ `todo ${ todo.isCompleted ? 'strike-through' : '' }` }
+			onClick={() => handleItemClick( index )}
+		>
 			{ todo.text }
 		</div>
 	)

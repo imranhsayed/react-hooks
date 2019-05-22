@@ -39,4 +39,10 @@ body {
 .todo {
 	padding: 12px 0;
 	border-bottom: 1px solid #c8ccce;
+	cursor: pointer;
+	user-select: none;
+}
+
+.strike-through {
+	text-decoration: line-through;
 }

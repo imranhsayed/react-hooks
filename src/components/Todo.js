@@ -23,7 +23,7 @@ const Todo = () => {
 	];
 
 	/**
-	 * todos: is initial State, whose value will be equal to the array that we pass in useState()
+	 * todos: is initial State, whose value will be equal to initialState that we pass in useState() as a parameter
 	 * setTodos is like setState
 	 */
 	const [ todos, setTodos ] = useState( initialState );
@@ -33,6 +33,18 @@ const Todo = () => {
 		setTodos( newToDos );
 	};
 
+	const handleItemClick = ( index ) => {
+		// Get all todos array from state.
+		const newTodos = [ ...todos ];
+
+		// Set isCompleted property to reverse of what its current value is ( boolean )
+		newTodos[ index ].isCompleted = ! newTodos[ index ].isCompleted;
+
+		// Set State with the new array of todos with the updated value
+		setTodos( newTodos );
+	};
+
+
 	return (
 		<div className="todo-container">
 			<TodoForm addToDo={addToDo}/>
@@ -40,8 +52,10 @@ const Todo = () => {
 				{ todos.length && (
 					todos.map( ( item, index ) => (
 						<Item
-							key={`${item.text}-${index}`}
-							todo={item}
+							key={`${ item.text }-${ index }`}
+							todo={ item }
+							index={ index }
+							handleItemClick={ handleItemClick }
 						/>
 					) )
 				) }
