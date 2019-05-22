@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Item from './Item';
 
 const Todo = () => {
 
@@ -23,7 +24,13 @@ const Todo = () => {
 	return (
 		<div>
 			<div className="todo-list">
-
+				{ todos.length && (
+					todos.map( ( item, index ) => (
+						<Item
+							key={`${item.text}-${index}`}
+						/>
+					) )
+				) }
 			</div>
 		</div>
 	);
