@@ -1,0 +1,42 @@
+*,
+*:after,
+*:before {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Hind Siliguri', sans-serif;
+}
+
+.main-heading {
+	text-align: center;
+}
+
+.todo-container {
+	max-width: 800px;
+	box-shadow: 1px 1px 1px #f5fffa;
+	padding: 36px 24px 54px 24px;
+	background: #f0f8ff;
+	margin: auto;
+	margin-top: 50px;
+}
+
+.form-label {
+	overflow: hidden;
+	font-size: 24px;
+}
+
+.form-input {
+	width: 100%;
+	padding: 10px;
+	margin: 16px 0;
+	box-sizing: border-box;
+	display: inline-block;
+	outline: none;
+	font-size: 20px;
+}
+
+.todo {
+	padding: 12px 0;
+	border-bottom: 1px solid #c8ccce;
+}

@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import Item from './Item';
+import TodoForm from "./TodoForm";
 
 const Todo = () => {
 
 
-	const { todos, setTodos } = useState([
+	const initialState = [
 		{
 			text: 'Learn Hooks',
 			isCompleted: false
@@ -19,15 +20,28 @@ const Todo = () => {
 			text: 'Learn JavaScript',
 			isCompleted: false
 		},
-	]);
+	];
+
+	/**
+	 * todos: is initial State, whose value will be equal to the array that we pass in useState()
+	 * setTodos is like setState
+	 */
+	const [ todos, setTodos ] = useState( initialState );
+
+	const addToDo = ( text ) => {
+		const newToDos = [ ...todos, { text } ];
+		setTodos( newToDos );
+	};
 
 	return (
-		<div>
+		<div className="todo-container">
+			<TodoForm addToDo={addToDo}/>
 			<div className="todo-list">
 				{ todos.length && (
 					todos.map( ( item, index ) => (
 						<Item
 							key={`${item.text}-${index}`}
+							todo={item}
 						/>
 					) )
 				) }
