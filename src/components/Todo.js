@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Item from './Item';
 import TodoForm from "./TodoForm";
+import Nav from "./Nav";
 
 const Todo = () => {
 
@@ -57,23 +58,26 @@ const Todo = () => {
 
 
 	return (
-		<div className="todo-container">
-			<h2 className="main-heading">Todo App</h2>
-			<TodoForm addToDo={addToDo}/>
-			<div className="todo-list">
-				{ todos.length ? (
-					todos.map( ( item, index ) => (
-						<Item
-							key={`${ item.text }-${ index }`}
-							todo={ item }
-							index={ index }
-							handleItemClick={ handleItemClick }
-							handleRemoveClick={handleRemoveClick}
-						/>
-					) )
-				) : '' }
+		<React.Fragment>
+			<Nav/>
+			<div className="todo-container">
+				<h2 className="main-heading">Todo App</h2>
+				<TodoForm addToDo={addToDo}/>
+				<div className="todo-list">
+					{ todos.length ? (
+						todos.map( ( item, index ) => (
+							<Item
+								key={`${ item.text }-${ index }`}
+								todo={ item }
+								index={ index }
+								handleItemClick={ handleItemClick }
+								handleRemoveClick={handleRemoveClick}
+							/>
+						) )
+					) : '' }
+				</div>
 			</div>
-		</div>
+		</React.Fragment>
 	);
 };
 
