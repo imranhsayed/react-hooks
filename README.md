@@ -16,7 +16,7 @@
 
 ### Todo App Demo :video_camera:
 
-![](todo-app.gif)
+![](todo-app-demo.gif)
 
 ## Commands :computer:
 
