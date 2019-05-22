@@ -10,6 +10,8 @@ body {
 
 .main-heading {
 	text-align: center;
+	color: #00ffff;
+	font-size: 30px;
 }
 
 .todo-container {
@@ -19,7 +21,7 @@ body {
 	background: black;
 	color: white;
 	margin: auto;
-	margin-top: 24px;
+	height: 100vh;
 }
 
 .form-label {
@@ -49,4 +51,9 @@ body {
 .strike-through {
 	text-decoration: line-through;
 	color: #0ddc0d;
+}
+
+.remove-item-cross {
+	float: right;
+	padding-right: 10px;
 }

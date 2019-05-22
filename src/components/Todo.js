@@ -44,21 +44,34 @@ const Todo = () => {
 		setTodos( newTodos );
 	};
 
+	const handleRemoveClick = ( index ) => {
+		// Get all todos array from state.
+		const newTodos = [ ...todos ];
+
+		// Remove the clicked item from the todos array
+		newTodos.splice( index, 1 );
+
+		// Set State with the new array of todos with the updated value
+		setTodos( newTodos );
+	};
+
 
 	return (
 		<div className="todo-container">
+			<h2 className="main-heading">Todo App</h2>
 			<TodoForm addToDo={addToDo}/>
 			<div className="todo-list">
-				{ todos.length && (
+				{ todos.length ? (
 					todos.map( ( item, index ) => (
 						<Item
 							key={`${ item.text }-${ index }`}
 							todo={ item }
 							index={ index }
 							handleItemClick={ handleItemClick }
+							handleRemoveClick={handleRemoveClick}
 						/>
 					) )
-				) }
+				) : '' }
 			</div>
 		</div>
 	);
