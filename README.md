@@ -2,6 +2,10 @@
 
 :anchor: A demo app for React Hooks
 
+## What are React Hooks?
+
+> Hooks are a new addition in React 16.8, which allow you to use state and other React features without writing a class.
+
 ## Installation :wrench:
 
 * Clone this repo in `git clone https://github.com/imranhsayed/react-hooks`
