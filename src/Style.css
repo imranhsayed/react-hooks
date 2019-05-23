@@ -9,6 +9,10 @@ body {
 	margin: 0;
 }
 
+a:hover {
+	color: #ffa500;
+}
+
 .navigation {
 	height: 42px;
 	display: flex;
