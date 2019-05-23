@@ -45,13 +45,19 @@ function ExampleWithManyStates() {
 * Hooks let you use more of React’s features without classes.
 * Reuse functionality between components. 
 
+## Rules of Hooks
+
+* Hooks should be called at the top level. Don’t call Hooks inside loops, conditions, or nested functions
+* Hooks should be called from React function components. Don’t call Hooks from regular JavaScript functions
+* There are linter plugins for check this rule [eslint-plugin-react-hooks](https://www.npmjs.com/package/eslint-plugin-react-hooks)
+
 ## Types of Hooks?
 
 1. State Hook : `useState()`
-   * `useState` returns a pair: the current state value and a function that lets you update it
+   * `useState` takes initialState and returns a pair: the current state value and a function that lets you update it
    
    ```ruby
-   const [count, setCount] = useState(0);
+   const [count, setCount] = useState( initialState );
    ```
    
    * `useState` is similar to this.setState in a class, except it doesn’t merge the old and new state together
@@ -63,6 +69,15 @@ function ExampleWithManyStates() {
   
   * `useEffect`, adds the ability to perform side effects from a function component. It serves the same purpose as componentDidMount, componentDidUpdate, and componentWillUnmount in React classes
   * By default, React runs the effects after every render — including the first render.
+  * Just like with useState, you can use more than a single effect in a component
+  
+3. `useConText()`
+
+  * `useConText` lets you subscribe to React context without introducing nesting 
+
+4.  `useReducer()`
+  
+  * `useReducer` lets you manage local state of complex components with a reducer   
 
 ## How do lifecycle methods correspond to Hooks?
 
