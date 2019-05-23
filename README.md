@@ -22,7 +22,7 @@
 
 * Sometimes its difficult to break components into smaller ones because the stateful logic is all over the place, making them difficult to test.
 
-## Difference between State of a class Vs Hook?
+## Difference between State of a Class Vs Hook?
 
 * Unlike this.state, the state in hooks doesn’t have to be an object.
 * You can use the State Hook more than once in a single component
@@ -62,6 +62,7 @@ function ExampleWithManyStates() {
   because they can affect other components and can’t be done during rendering.
   
   * `useEffect`, adds the ability to perform side effects from a function component. It serves the same purpose as componentDidMount, componentDidUpdate, and componentWillUnmount in React classes
+  * By default, React runs the effects after every render — including the first render.
 
 ## How do lifecycle methods correspond to Hooks?
 
