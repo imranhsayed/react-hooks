@@ -4,9 +4,9 @@
 
 ## What are React Hooks?
 
-> * A Hook is a special function that lets you “hook into” React features.
+> * A Hook is a special function that lets you “hook into” React state and lifecycle features.
 > * Hooks are a new addition in React 16.8, which allow you to use state and other React features without writing a class.
-> * For example, useState is a Hook that lets you add React state to function components
+> * For example, useState is a Hook that lets you add React state to function components. Hooks dont work inside classes
 
 ## When would I use a Hook?
  * If you write a function component and realize you need to add some state to it, previously you had to convert it to a class 
@@ -56,7 +56,12 @@ function ExampleWithManyStates() {
    
    * `useState` is similar to this.setState in a class, except it doesn’t merge the old and new state together
    
-2. Effect Hook: `effectHook()`
+2. Effect Hook: `useEffect()`
+
+  * Operations like data fetching, subscriptions, or manually changing the DOM from React components are called “side effects” or "effects",
+  because they can affect other components and can’t be done during rendering.
+  
+  * `useEffect`, adds the ability to perform side effects from a function component. It serves the same purpose as componentDidMount, componentDidUpdate, and componentWillUnmount in React classes
 
 ## How do lifecycle methods correspond to Hooks?
 
@@ -78,7 +83,7 @@ function ExampleWithManyStates() {
 
 ## Branches Information
 
-1 [increment-counter](https://github.com/imranhsayed/react-hooks/tree/increment-counter) Simple Example for using React Hooks by incrementing counter on click of a button.
+1 [increment-counter](https://github.com/imranhsayed/react-hooks/tree/increment-counter) Simple Example for a State Hook `useState`,  by incrementing counter on click of a button.
 2 [todo-app](https://github.com/imranhsayed/react-hooks/tree/todo-app) Example of creating a Todo App using React Hooks
 
 ### Todo App Demo :video_camera:
