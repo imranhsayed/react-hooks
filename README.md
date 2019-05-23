@@ -28,6 +28,12 @@
 ## Types of Hooks?
 
 1. State Hook : `useState()`
+   * `useState` returns a pair: the current state value and a function that lets you update it
+   
+   ```ruby
+   const [count, setCount] = useState(0);
+   ```
+   
 2. Effect Hook: `effectHook()`
 
 ## How do lifecycle methods correspond to Hooks?
