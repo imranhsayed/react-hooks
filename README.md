@@ -8,6 +8,9 @@
 > * Hooks are a new addition in React 16.8, which allow you to use state and other React features without writing a class.
 > * For example, useState is a Hook that lets you add React state to function components
 
+## When would I use a Hook?
+ * If you write a function component and realize you need to add some state to it, previously you had to convert it to a class 
+
 ## Why use React Hooks?
 
 * They avoid the confusion of `this` keyword and bind this.
@@ -18,6 +21,21 @@
 > * However, the same `componentDidMount` method might also contain some unrelated logic that sets up event listeners, with cleanup performed in `componentWillUnmount`
 
 * Sometimes its difficult to break components into smaller ones because the stateful logic is all over the place, making them difficult to test.
+
+## Difference between State of a class Vs Hook?
+
+* Unlike this.state, the state in hooks doesn’t have to be an object.
+* You can use the State Hook more than once in a single component
+
+```ruby
+function ExampleWithManyStates() {
+  // Declare multiple state variables!
+  const [age, setAge] = useState(42);
+  const [fruit, setFruit] = useState('banana');
+  const [todos, setTodos] = useState([{ text: 'Learn Hooks' }]);
+  // ...
+}
+``` 
 
 ## Features of Hooks?
 
