@@ -4,7 +4,9 @@
 
 ## What are React Hooks?
 
-> Hooks are a new addition in React 16.8, which allow you to use state and other React features without writing a class.
+> * A Hook is a special function that lets you “hook into” React features.
+> * Hooks are a new addition in React 16.8, which allow you to use state and other React features without writing a class.
+> * For example, useState is a Hook that lets you add React state to function components
 
 ## Why use React Hooks?
 
@@ -33,6 +35,8 @@
    ```ruby
    const [count, setCount] = useState(0);
    ```
+   
+   * `useState` is similar to this.setState in a class, except it doesn’t merge the old and new state together
    
 2. Effect Hook: `effectHook()`
 
