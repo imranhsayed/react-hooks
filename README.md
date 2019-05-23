@@ -23,6 +23,22 @@
 * 100% backwards-compatible
 * Split one component into smaller functions based on what pieces are related (such as setting up a subscription or fetching data)
 * Hooks let you use more of React’s features without classes.
+* Reuse functionality between components. 
+
+## Types of Hooks?
+
+1. State Hook : `useState()`
+2. Effect Hook: `effectHook()`
+
+## How do lifecycle methods correspond to Hooks?
+
+* `constructor`: Function components don’t need a constructor. You can initialize the state in the useState call.
+* `getDerivedStateFromProps`: Schedule an update while rendering instead.
+* `render`: This is the function component body itself.
+* `componentDidMount`, `componentDidUpdate`, `componentWillUnmount`: The useEffect Hook can express all combinations of these (including less common cases).
+* `componentDidCatch` and `getDerivedStateFromError`: There are no Hook equivalents for these methods yet, but they will be added soon.
+
+
 
 ## Installation :wrench:
 
