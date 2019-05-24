@@ -53,7 +53,7 @@ function ExampleWithManyStates() {
 
 ## Types of Hooks?
 
-1. State Hook : `useState()`
+### 1. State Hook : `useState()`
    * `useState` takes initialState and returns a pair: the current state value and a function that lets you update it
    
    ```ruby
@@ -62,7 +62,7 @@ function ExampleWithManyStates() {
    
    * `useState` is similar to this.setState in a class, except it doesn’t merge the old and new state together
    
-2. Effect Hook: `useEffect()`
+### 2. Effect Hook: `useEffect()`
 
   * Operations like data fetching, subscriptions, or manually changing the DOM from React components are called “side effects” or "effects",
   because they can affect other components and can’t be done during rendering.
@@ -71,11 +71,11 @@ function ExampleWithManyStates() {
   * By default, React runs the effects after every render — including the first render.
   * Just like with useState, you can use more than a single effect in a component
   
-3. `useConText()`
+### 3. `useConText()`
 
   * `useConText` lets you subscribe to React context without introducing nesting 
 
-4.  `useReducer()`
+### 4. `useReducer()`
   
   * `useReducer` lets you manage local state of complex components with a reducer   
 
