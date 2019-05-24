@@ -84,7 +84,7 @@ function ExampleWithManyStates() {
    
   * Just like with useState, you can use more than a single effect in a component
   
-  * #####`Effects that don't require cleanup`:##### 
+  * #####`Effects that don't require cleanup`: 
   > are the operations we perform after React has updated the DOM ( after render is called ).
   For example network request, user login  
   
@@ -94,9 +94,10 @@ function ExampleWithManyStates() {
       }, [] );
   ```
   
-  * #####`Effects that do require cleanup`:##### 
+  * #####`Effects that do require cleanup`: 
   > are the operations where we may want to set up a subscription to some external data source. So its important
-  to cleanup to avoid memory leak. If your effect returns a function, React will run it when it is time to clean up:
+  to cleanup to avoid memory leak. If your effect returns a function, React will run it when it is time to clean up on unmounts. Function return is optional
+  and is required only if we require cleaning. Please note the this return function is called when the component unmounts.
   
   ```ruby
       useEffect( () => {
@@ -104,8 +105,19 @@ function ExampleWithManyStates() {
       	console.warn( 'mounted/updated: Do Something( Fetch API, Add Event )' );
       
       	return () => console.warn( 'unmounted: Do Something( Unsuscribe, Remove Event )' );
-      }, [] );
-  ```  
+      } );
+  ``` 
+  
+  * #####`Skipping Effect for Perforance Optimization`:  
+  
+  ```ruby
+        useEffect( () => {
+        
+        	console.warn( 'mounted/updated: Do Something( Fetch API, Add Event )' );
+        
+        	return () => console.warn( 'unmounted: Do Something( Unsuscribe, Remove Event )' );
+        }, [] );
+   ```
   
 #### 3. `useConText()`
 
