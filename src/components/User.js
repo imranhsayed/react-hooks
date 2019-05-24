@@ -22,12 +22,13 @@ const User = () =>  {
 		fetchData( userData.userName );
 	}, []);
 
-
 	const { data } = userData;
 
 	return (
 		<>
+			<Nav/>
 			<h1>Github data</h1>
+
 			{ Object.keys( data ).length ? (
 				<>
 					<h3>UserName => { data.name }</h3>

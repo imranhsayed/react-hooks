@@ -77,8 +77,9 @@ function ExampleWithManyStates() {
   * Operations like data fetching, subscriptions, or manually changing the DOM from React components are called “side effects” or "effects",
   because they can affect other components and can’t be done during rendering.
   
-  * `useEffect`, adds the ability to perform side effects from a function component. It serves the same purpose as componentDidMount, componentDidUpdate, and componentWillUnmount in React classes
-  * By default, React runs the effects after every render — including the first render.
+  * `useEffect`, adds the ability to perform side effects from a function component. It serves the same purpose as componentDidMount, componentDidUpdate, and componentWillUnmount in React classes.
+  * By default, React runs the effects after every render — including the first render. So `useEffect()` is called on initial render, when state changes ( component updates ) and when component unmounts.
+   
   * Just like with useState, you can use more than a single effect in a component
   
 > * `Effects that don't require cleanup`: are the operations we perform after React has updated the DOM ( after render is called ).

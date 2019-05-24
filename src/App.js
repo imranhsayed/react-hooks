@@ -5,6 +5,7 @@ import Home from "./components/Home";
 import User from './components/User';
 import './Style.css';
 import SimpleCounter from "./components/SimpleCounter";
+import Hierarchical from "./components/Hierachical";
 
 
 class App extends React.Component {
@@ -15,6 +16,7 @@ class App extends React.Component {
 				<Home path="/"/>
 				<SimpleCounter path="/counter"/>
 				<User path="/user"/>
+				<Hierarchical path="/hierarchical"/>
 			</Router>
 		);
 	}
