@@ -20,9 +20,10 @@ const User = () =>  {
 
 	useEffect(() => {
 		fetchData( userData.userName );
-	}, []);
+	}, [userData.userName]);
 
 	const { data } = userData;
+	console.warn( data );
 
 	return (
 		<>

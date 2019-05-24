@@ -22,8 +22,11 @@
 > * We can perform all operations in just one hook `useEffect()`, that we used to perform in three different lifecycle methods ComponentDidMount, ComponentWillUnmount and ComponentDidUpdate.
 > * For Example, we can perform all operations (effects) in one hook `useEffect()`, when we want an operation to be performed on every render. In classes we had to do the
 same operation in both ComponentDidMount and ComponentDidUpdate.
+> * Lifecycle methods of a class often contain unrelated logic, but related logic gets broken up into several methods.
 
 * Unlike componentDidMount or componentDidUpdate, effects scheduled with useEffect don’t block the browser from updating the screen. This makes your app feel more responsive.
+* Forgetting to handle componentDidUpdate properly is a common source of bugs in React applications. Hooks solve this problem because [effect cleanup phase](https://reactjs.org/docs/hooks-effect.html#explanation-why-effects-run-on-each-update) happens after every re-render.
+So There is no special code for handling updates because useEffect handles them by default. It cleans up the previous effects before applying the next effects
 * Sometimes its difficult to break components into smaller ones because the stateful logic is all over the place, making them difficult to test.
 
 ## Difference between State of a Class Vs Hook?
@@ -86,18 +89,19 @@ function ExampleWithManyStates() {
   
   * ##### `Effects that don't require cleanup`: 
   > are the operations we perform after React has updated the DOM ( after render is called ).
-  For example network request, user login  
+  For example network request, user login. useEffect takes a function , that can be called 'effects' because it performs some operations.
+  Some of these functions ( effects ), passed as a parameter, might require cleanup so they return a function, which we will discuss below.
   
   ```ruby
       useEffect( () => {
       	console.warn( 'mounted/updated: Do Something( Fetch API, Add Event )' );      
-      }, [] );
+      } );
   ```
   
   * ##### `Effects that do require cleanup`: 
   > are the operations where we may want to set up a subscription to some external data source. So its important
-  to cleanup to avoid memory leak. If your effect returns a function, React will run it when it is time to clean up on unmounts. Function return is optional
-  and is required only if we require cleaning. Please note the this return function is called when the component unmounts.
+  to cleanup to avoid memory leak. If your effect returns a function, React will run it when it is time to clean up on unmounts and re-render. Function return is optional
+  and is required only if we require cleaning. Please note the this return function is called when the component unmounts and on every re-render.
   
   ```ruby
       useEffect( () => {
@@ -109,6 +113,9 @@ function ExampleWithManyStates() {
   ``` 
   
   * ##### `Skipping Effect for Perforance Optimization`:  
+  You can tell React to skip applying an effect if certain values haven’t changed between re-renders. To do so, pass an array as an optional second argument to useEffect:
+  In below case if the value of 'count'( state variable ) does not change then the effect ( function passed as a parameter in useEffect ) will not run.
+  If you want to run an effect and clean it up only once (on mount and unmount), you can pass an empty array ([]) as a second argument
   
   ```ruby
         useEffect( () => {
@@ -116,8 +123,13 @@ function ExampleWithManyStates() {
         	console.warn( 'mounted/updated: Do Something( Fetch API, Add Event )' );
         
         	return () => console.warn( 'unmounted: Do Something( Unsuscribe, Remove Event )' );
-        }, [] );
+        }, [count] );
    ```
+   
+   * You can define multiple useEffect() in a component.
+   Hooks let us split the code based on what it is doing rather than a lifecycle method name.
+    React will apply every effect used by the component, in the order they were specified.
+     
   
 #### 3. `useConText()`
 
