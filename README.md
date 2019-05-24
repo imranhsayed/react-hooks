@@ -24,7 +24,7 @@
 
 ## Difference between State of a Class Vs Hook?
 
-* Unlike this.state, the state in hooks doesn’t have to be an object.
+* Unlike this.state, the state in hooks doesn’t have to be an object. We can keep it a number, string or an array.
 * You can use the State Hook more than once in a single component
 
 ```ruby
@@ -54,14 +54,18 @@ function ExampleWithManyStates() {
 ## Types of Hooks?
 
 #### 1. State Hook : `useState()`
-   * `useState` takes initialState and returns a pair: the current state value and a function that lets you update it
+   * `useState` takes initialState and returns a pair ( an array with two items ): the current state value
+    and a function that lets you update it
    
    ```ruby
    const [count, setCount] = useState( initialState );
    ```
    
-   * Calling `useState` like below, declares a state variable (count), initially its value will be equal to initialState. And it
-   denotes the current state value.
+   * Calling `useState()` like above, declares a state variable (count).The first time our component renders, its value will be equal to initialState.
+    The next time our component renders its value will be equal to current State ( which will be same as initial state 
+    unless the setCount() updates its value )
+    
+   * When `setCount( 1 )` is called with a new value, React re-renders your component, passing new state (count) value to it.  
    
    * `useState` is similar to this.setState in a class, except it doesn’t merge the old and new state together
    
@@ -81,6 +85,13 @@ function ExampleWithManyStates() {
 #### 4. `useReducer()`
   
   * `useReducer` lets you manage local state of complex components with a reducer   
+  
+## How does React associate Hook calls with components?
+
+  * React keeps track of the currently rendering component.
+  * There is an internal list of `“memory cells”` associated with each component. They’re just JavaScript objects where we can put some data
+  * When you call a Hook like `useState()`, it reads the current cell (or initializes it during the first render), and then moves the pointer to the next one
+  * This is how multiple useState() calls each get independent local state
 
 ## How do lifecycle methods correspond to Hooks?
 
