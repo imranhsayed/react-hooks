@@ -122,6 +122,7 @@ function ExampleWithManyStates() {
 
 1. [increment-counter](https://github.com/imranhsayed/react-hooks/tree/increment-counter) Simple Example for a State Hook `useState`,  by incrementing counter on click of a button.
 2. [todo-app](https://github.com/imranhsayed/react-hooks/tree/todo-app) Example of creating a Todo App using React Hooks
+3. [hierarchical-components](https://github.com/imranhsayed/react-hooks/tree/hierarchical-components) Example for Parent Child Component, where useEffect gets called when Component Mounts or Unmounts.
 
 ### Todo App Demo :video_camera:
 
