@@ -19,6 +19,7 @@
 * Complex components become hard to understand.
 > * Example components might perform some data fetching in `componentDidMount` and `componentDidUpdate`, 
 > * However, the same `componentDidMount` method might also contain some unrelated logic that sets up event listeners, with cleanup performed in `componentWillUnmount`
+> * We can perform all operations in just one hook `useEffect()`, that we used to perform in three different lifecycle methods ComponentDidMount, ComponentWillUnmount and ComponentDidUpdate.
 
 * Sometimes its difficult to break components into smaller ones because the stateful logic is all over the place, making them difficult to test.
 
