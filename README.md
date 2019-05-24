@@ -89,9 +89,9 @@ function ExampleWithManyStates() {
 ## How does React associate Hook calls with components?
 
   * React keeps track of the currently rendering component.
-  * There is an internal list of `“memory cells”` associated with each component. They’re just JavaScript objects where we can put some data
-  * When you call a Hook like `useState()`, it reads the current cell (or initializes it during the first render), and then moves the pointer to the next one
-  * This is how multiple useState() calls each get independent local state
+  * There is an internal list of `“memory cells”` associated with each component. They’re just JavaScript objects where we can put some data.
+  * When you call a Hook like `useState()`, it reads the current cell (or initializes it during the first render), and then moves the pointer to the next one.
+  * This is how multiple useState() calls each get independent local state.
 
 ## How do lifecycle methods correspond to Hooks?
 

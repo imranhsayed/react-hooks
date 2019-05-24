@@ -2,24 +2,37 @@ import React, { useEffect, useState } from 'react';
 import Nav from './Nav';
 
 const User = () =>  {
-	const [username, setUserName] = useState('imranhsayed');
-	const [userData, setUserData] = useState(null);
 
-	useEffect(() => {
+	const initialState = {
+		userName: 'imranhsayed',
+		age: 28,
+		data: {}
+	};
+
+	const [userData, setUserData] = useState(initialState);
+
+	const fetchData = (username) => {
+
 		fetch(`https://api.github.com/users/${username}`)
 			.then(res => res.json())
-			.then(data => setUserData(data));
-	});
+			.then(resData => setUserData( { ...userData, ...resData } ) );
+	};
+
+	useEffect(() => {
+		fetchData( userData.userName );
+	}, []);
+
+
+	console.warn( userData );
 
 	return (
 		<>
-			<Nav/>
 			<h1>Github data</h1>
-			{userData ? (
+			{ Object.keys( userData ).length ? (
 				<>
-					<h3>UserName => {userData.login}</h3>
-					<p>Bio => {userData.bio}</p>
-					<img src={userData.avatar_url} alt="Image"/>
+					<h3>UserName => { userData.name }</h3>
+					<p>Bio => { userData.bio }</p>
+					<img src={ userData.avatar_url } alt="Image"/>
 				</>
 			) : (
 				""
