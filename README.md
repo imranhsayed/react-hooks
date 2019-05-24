@@ -20,6 +20,8 @@
 > * Example components might perform some data fetching in `componentDidMount` and `componentDidUpdate`, 
 > * However, the same `componentDidMount` method might also contain some unrelated logic that sets up event listeners, with cleanup performed in `componentWillUnmount`
 > * We can perform all operations in just one hook `useEffect()`, that we used to perform in three different lifecycle methods ComponentDidMount, ComponentWillUnmount and ComponentDidUpdate.
+> * For Example, we can perform all operations (effects) in one hook `useEffect()`, when we want an operation to be performed on every render. In classes we had to do the
+same operation in both ComponentDidMount and ComponentDidUpdate.
 
 * Sometimes its difficult to break components into smaller ones because the stateful logic is all over the place, making them difficult to test.
 
@@ -78,6 +80,9 @@ function ExampleWithManyStates() {
   * `useEffect`, adds the ability to perform side effects from a function component. It serves the same purpose as componentDidMount, componentDidUpdate, and componentWillUnmount in React classes
   * By default, React runs the effects after every render — including the first render.
   * Just like with useState, you can use more than a single effect in a component
+  
+> * `Effects that don't require cleanup`: are the operations we perform after React has updated the DOM ( after render is called ).
+  For example network request, user login  
   
 #### 3. `useConText()`
 
