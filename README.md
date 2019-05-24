@@ -23,6 +23,7 @@
 > * For Example, we can perform all operations (effects) in one hook `useEffect()`, when we want an operation to be performed on every render. In classes we had to do the
 same operation in both ComponentDidMount and ComponentDidUpdate.
 
+* Unlike componentDidMount or componentDidUpdate, effects scheduled with useEffect don’t block the browser from updating the screen. This makes your app feel more responsive.
 * Sometimes its difficult to break components into smaller ones because the stateful logic is all over the place, making them difficult to test.
 
 ## Difference between State of a Class Vs Hook?
@@ -85,7 +86,7 @@ function ExampleWithManyStates() {
   	console.warn( 'mounted/updated: Do Something( Fetch API, Add Event )' );
   
   	return () => console.warn( 'unmounted: Do Something( Unsuscribe, Remove Event )' );
-  } );
+  }, [] );
   ```
   
   * By default, React runs the effects after every render — including the first render. So `useEffect()` is called on initial render, when state changes ( component updates ) and when component unmounts.
@@ -102,6 +103,30 @@ function ExampleWithManyStates() {
 #### 4. `useReducer()`
   
   * `useReducer` lets you manage local state of complex components with a reducer   
+  
+#### 5. `useCallback()`
+
+  * Returns a memoized callback  
+  
+#### 6. `useMemo()`
+
+  * Returns a memoized value  
+
+#### 7. `useRef()`
+
+  * Returns a mutable ref object whose .current property is initialized to the passed argument (initialValue)
+  
+#### 8. `useImperativeHandle()`
+
+  * Customizes the instance value that is exposed to parent components when using ref     
+
+#### 9. `useLayoutEffect()`
+
+  * The signature is identical to useEffect, but it fires synchronously after all DOM mutations. Use this to read layout from the DOM and synchronously re-render.         
+
+#### 10. `useDebugValue()`
+
+  * Used to display a label for custom hooks in React DevTools.  
   
 ## How does React associate Hook calls with components?
 
