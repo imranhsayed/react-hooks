@@ -84,7 +84,8 @@ function ExampleWithManyStates() {
    
   * Just like with useState, you can use more than a single effect in a component
   
-  * `Effects that don't require cleanup`: are the operations we perform after React has updated the DOM ( after render is called ).
+  * #####`Effects that don't require cleanup`:##### 
+  > are the operations we perform after React has updated the DOM ( after render is called ).
   For example network request, user login  
   
   ```ruby
@@ -93,7 +94,8 @@ function ExampleWithManyStates() {
       }, [] );
   ```
   
-  * `Effects that do require cleanup`: are the operations where we may want to set up a subscription to some external data source. So its important
+  * #####`Effects that do require cleanup`:##### 
+  > are the operations where we may want to set up a subscription to some external data source. So its important
   to cleanup to avoid memory leak. If your effect returns a function, React will run it when it is time to clean up:
   
   ```ruby
