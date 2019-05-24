@@ -15,7 +15,7 @@ const User = () =>  {
 
 		fetch(`https://api.github.com/users/${username}`)
 			.then(res => res.json())
-			.then(resData => setUserData( { ...userData, ...resData } ) );
+			.then(resData => setUserData( { ...userData, data: resData } ) );
 	};
 
 	useEffect(() => {
@@ -23,16 +23,16 @@ const User = () =>  {
 	}, []);
 
 
-	console.warn( userData );
+	const { data } = userData;
 
 	return (
 		<>
 			<h1>Github data</h1>
-			{ Object.keys( userData ).length ? (
+			{ Object.keys( data ).length ? (
 				<>
-					<h3>UserName => { userData.name }</h3>
-					<p>Bio => { userData.bio }</p>
-					<img src={ userData.avatar_url } alt="Image"/>
+					<h3>UserName => { data.name }</h3>
+					<p>Bio => { data.bio }</p>
+					<img src={ data.avatar_url } alt="Image"/>
 				</>
 			) : (
 				""
