@@ -7,12 +7,12 @@ const Hierarchical = () => {
 
 	const MyChild = () => {
 
-		useEffect( () => {
+	useEffect( () => {
 
-			console.warn( 'mounted' );
+		console.warn( 'mounted/updated: Do Something( Fetch API, Add Event )' );
 
-			return () => console.warn( 'unmounted' )
-		} );
+		return () => console.warn( 'unmounted: Do Something( Unsuscribe, Remove Event )' );
+	} );
 
 		return (
 			<div>MyChild Component</div>

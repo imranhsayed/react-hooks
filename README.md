@@ -78,6 +78,16 @@ function ExampleWithManyStates() {
   because they can affect other components and can’t be done during rendering.
   
   * `useEffect`, adds the ability to perform side effects from a function component. It serves the same purpose as componentDidMount, componentDidUpdate, and componentWillUnmount in React classes.
+  
+  ```ruby
+  useEffect( () => {
+  
+  	console.warn( 'mounted/updated: Do Something( Fetch API, Add Event )' );
+  
+  	return () => console.warn( 'unmounted: Do Something( Unsuscribe, Remove Event )' );
+  } );
+  ```
+  
   * By default, React runs the effects after every render — including the first render. So `useEffect()` is called on initial render, when state changes ( component updates ) and when component unmounts.
    
   * Just like with useState, you can use more than a single effect in a component
@@ -120,9 +130,9 @@ function ExampleWithManyStates() {
 
 ## Branches Information
 
-1. [increment-counter](https://github.com/imranhsayed/react-hooks/tree/increment-counter) Simple Example for a State Hook `useState`,  by incrementing counter on click of a button.
-2. [todo-app](https://github.com/imranhsayed/react-hooks/tree/todo-app) Example of creating a Todo App using React Hooks
-3. [hierarchical-components](https://github.com/imranhsayed/react-hooks/tree/hierarchical-components) Example for Parent Child Component, where useEffect gets called when Component Mounts or Unmounts.
+1. `useState Example:` [increment-counter](https://github.com/imranhsayed/react-hooks/tree/increment-counter) Simple Example for a State Hook `useState`,  by incrementing counter on click of a button.
+2. `useState Example:` [todo-app](https://github.com/imranhsayed/react-hooks/tree/todo-app) Example of creating a Todo App using React Hooks
+3. `useEffect Example:` [hierarchical-components](https://github.com/imranhsayed/react-hooks/tree/hierarchical-components) Example for Parent Child Component, where useEffect gets called when Component Mounts or Unmounts.
 
 ### Todo App Demo :video_camera:
 
