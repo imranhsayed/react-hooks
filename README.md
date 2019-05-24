@@ -80,21 +80,30 @@ function ExampleWithManyStates() {
   
   * `useEffect`, adds the ability to perform side effects from a function component. It serves the same purpose as componentDidMount, componentDidUpdate, and componentWillUnmount in React classes.
   
-  ```ruby
-  useEffect( () => {
-  
-  	console.warn( 'mounted/updated: Do Something( Fetch API, Add Event )' );
-  
-  	return () => console.warn( 'unmounted: Do Something( Unsuscribe, Remove Event )' );
-  }, [] );
-  ```
-  
   * By default, React runs the effects after every render — including the first render. So `useEffect()` is called on initial render, when state changes ( component updates ) and when component unmounts.
    
   * Just like with useState, you can use more than a single effect in a component
   
-> * `Effects that don't require cleanup`: are the operations we perform after React has updated the DOM ( after render is called ).
+  * `Effects that don't require cleanup`: are the operations we perform after React has updated the DOM ( after render is called ).
   For example network request, user login  
+  
+  ```ruby
+      useEffect( () => {
+      	console.warn( 'mounted/updated: Do Something( Fetch API, Add Event )' );      
+      }, [] );
+  ```
+  
+  * `Effects that do require cleanup`: are the operations where we may want to set up a subscription to some external data source. So its important
+  to cleanup to avoid memory leak. If your effect returns a function, React will run it when it is time to clean up:
+  
+  ```ruby
+      useEffect( () => {
+      
+      	console.warn( 'mounted/updated: Do Something( Fetch API, Add Event )' );
+      
+      	return () => console.warn( 'unmounted: Do Something( Unsuscribe, Remove Event )' );
+      }, [] );
+  ```  
   
 #### 3. `useConText()`
 
