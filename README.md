@@ -134,6 +134,65 @@ function ExampleWithManyStates() {
 #### 3. `useConText()`
 
   * `useConText` lets you subscribe to React context without introducing nesting 
+  
+  * Create AppContext and AppProvider out of it.
+  
+  ```ruby
+  import React, { useState } from 'react';
+  export const AppContext = React.createContext([
+  	{},
+  	() => {}
+  ]);
+  
+  export const AppProvider = ( props ) => {
+  
+  	const [ state, setState ] = useState();
+  
+  	return (
+  		<AppContext.Provider value={ [ state, setState ] }>
+  			{ props.children }
+  		</AppContext.Provider>
+  	);
+  };
+  ```
+  
+  * Wrap your main component with AppProvider
+  
+  ```ruby
+  import { AppProvider } from "../context/AppContext";
+  const Index = ( props ) => {
+     return (
+        <AppProvider>
+           <div>
+              <AddToCartButton>
+           </div>
+        </AppProvider>
+     );
+  };
+  
+  export default Index;
+  ```
+  
+  * Then use `useContext( AppContext )` in any component to access a global context since `<AppProvider>` wrapped your main component above
+  
+  ```ruby
+  import { useContext } from 'react';
+  import { AppContext } from "./context/AppContext";
+  
+  const AddToCartButton = ( props ) => {
+  	const [ state, setState ] = useContext( AppContext );
+  	const handleAddToCartClick = () => {
+          setState( 'new cart' );
+  	};
+  	return(
+  		<React.Fragment>
+  			<button onClick={ handleAddToCartClick } className="btn btn-secondary">Add to cart</button>
+  		</React.Fragment>
+  	)
+  };
+  ```
+  
+  
 
 #### 4. `useReducer()`
   
