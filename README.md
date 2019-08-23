@@ -1,6 +1,6 @@
 # React Hooks
 
-:anchor: A demo app for React Hooks
+:anchor: A demo app for React Hooks.
 
 ## What are React Hooks?
 
